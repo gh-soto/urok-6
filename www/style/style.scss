@@ -1,0 +1,28 @@
+
+body {
+	background: #dddddd;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin: 100px auto;
+	text-align: center;
+}
+
+.container2 {
+	text-align: left;
+	form{
+		input{
+			margin-bottom: 20px;
+			width: 25%;
+		}
+		
+		input[type=submit] {
+			width: 15%;
+			margin-left: 5%;
+			
+		}
+	}
+}
+
