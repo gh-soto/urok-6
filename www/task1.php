@@ -50,7 +50,9 @@ header("Content-Type: text/html; charset=utf-8");
 
 			elseif (isset($_POST['db_check'])) {
 
+				//захист від введення сторонніх символів 
 				//можна і функцією це все поскорочувати, але я не хочу
+				//
 				$db_name = $_POST['db_name'];
 				$db_name = strip_tags($db_name);
 				$db_name = htmlspecialchars($db_name, ENT_QUOTES);

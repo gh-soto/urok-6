@@ -25,6 +25,10 @@ header("Content-Type: text/html; charset=utf-8");
 	<div class="container">
 
 		<?php
+
+			//перевіка чи здійснене підключення до бази даних в попередньому завданні. Дані для підключення з завдання 1
+			//використовуються в завданні 2 і передаються через суперглобальну змінну SESSION
+
 			if (isset($_SESSION['db_name']) && isset($_SESSION['db_username']) && isset($_SESSION['db_password'])) {
 				$db_name = $_SESSION['db_name'] ;
 				$db_username = $_SESSION['db_username'];
@@ -36,6 +40,8 @@ header("Content-Type: text/html; charset=utf-8");
 				}catch(PDOException $e) {
 					print ('<u><b>Помилка:</b></u> ' . $e->getMessage());
 				}
+
+
 				if (!empty($_POST['name']) and !empty($_POST['password'])) {
 
 					if (isset($_POST['name']) && isset($_POST['password'])) {
@@ -53,6 +59,8 @@ header("Content-Type: text/html; charset=utf-8");
 						$query = $conn->query("SELECT * FROM `USERS` WHERE name='$name'"); 
 						$user_data = $query->fetch (PDO::FETCH_ASSOC);
 
+
+						//перевірка чи існує запис про користувача в таблиці і умова авторизації
 						if ($user_data['name'] == NULL) {
 
 							$insert = array('name'=>$name, 'password'=>$password);
